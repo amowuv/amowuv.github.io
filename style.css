@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #25252b;
+    overflow: hidden; 
+}
+
+.gift-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20%;
+    transition: transform 1s ease-in-out; 
+}
+
+.gift-container.activate {
+    animation: Vibration 1s ease forwards;
+}
+
+@keyframes Vibration {
+    0% {
+        transform: scale(1,1);
+    }
+    25% {
+        transform: scale(.95,1.05);
+    }
+    50% {
+        transform: scale(1.1,.9);
+    }
+    75% {
+        transform: scale(.9,1.1);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+.gift-box {
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    background: #FBBAD2;
+    animation: Bounce 4s ease infinite forwards;
+}
+
+@keyframes Bounce {
+    0% {
+        transform: translateY(-24px);
+    }
+    50% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(-24px);
+    }
+}
+
+.gift-box.activate {
+    animation: none;
+}
+
+.gift-box::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 200px;
+    background: #EB97B8;
+    left: 124px;
+}
+
+.gift-box::after {
+    content: '';
+    position: absolute;
+    box-shadow: inset 0 10px rgba(0,0,0,.3);
+    width: 300px;
+    height: 200px;
+}
+
+.click {
+    position: absolute;
+    background: #FBBAD2;
+    width: 340px;
+    height: 90px;
+    top: -90px;
+    left: -20px;
+    cursor: pointer;
+    z-index: 1;
+    transition: .5s ease;
+}
+
+.click.activate {
+    transition-delay: 1s;
+    transform: translateY(-240px);
+}
+
+.click::before {
+    content: '';
+    width: 50px;
+    height: 90px;
+    background: #EB97B8;
+    left: 144px;
+    z-index: 2;
+}
+
+.click::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 0;
+    border-bottom: 60px solid #EB97B8;
+    border-top: 60px solid #EB97B8;
+    border-left: 0px solid transparent;
+    border-right: 60px solid transparent;
+    transform: rotate(-90deg);
+    top: -93px;
+    left: 136px;
+    z-index: 3;
+}
+
+.gift-container .shadow {
+    content: '';
+    position: relative;
+    width: 340px;
+    height: 40px;
+    background: rgba(0,0,0,.4);
+    top: 100px;
+    border-radius: 50%;
+    left: -4px;
+    animation: BounceOut 4s ease infinite forwards;
+}
+
+.gift-container .shadow.activate {
+    animation: none;
+}
+
+@keyframes BounceOut {
+    0% {
+        transform: translateY(24px);
+        scale: .7;
+    }
+    50% {
+        transform: translateY(0px);
+        scale: 1;
+    }
+    100% {
+        transform: translateY(24px);
+        scale: .7;
+    }
+}
+
+.omedeto {
+    position: absolute;
+    top: 0%;
+    width: 200px;
+    bottom: -40px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: 1.2s;
+}
+
+.omedeto img {
+    max-width: 400%;
+    max-height: 400%;
+}
+
+.omedeto.activate {
+    opacity: 1;
+    transform: translateY(-200px);
+}
+
+.omedeto.activate2 {
+    top: 0;
+    transition-delay: .1s;
+}
+
+.birthday-card {
+    position: absolute;
+    right: -100%; 
+    top: 50%;
+    width: 320px;
+    height: 450px;
+    background: rgb(245, 204, 229);
+    border: 9px solid rgb(253, 167, 200);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-50%); 
+    transition: transform 1s ease-in-out, right 1s ease-in-out; 
+    
+}
+
+.birthday-card.show {
+    right: 50%; 
+    transform: translate(50%, -50%);
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card-content .wish {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Baloo 2';
+    text-align: justify;
+    color: #25252b;
+}
+
+.card-content .sticker {
+    width: 100px;
+    height: 100px;
+    margin-top: 5px;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.card-buttons .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #25252b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+.card-buttons .button:hover {
+    background: #3a3a3f;
+}
